@@ -6,6 +6,8 @@ const accountRoutes = require('./routes/accounts');
 const servicesRoutes = require('./routes/services');
 const app = express();
 
+const port = process.env.PORT || 3000;
+
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
@@ -23,6 +25,6 @@ app.get('/profile', (req, res) =>{
 	res.render('profile', {user: users[0]})
 });
 
-app.listen(3000, () =>{
-	console.log('Running on port 3000...');
+app.listen(port, () =>{
+	console.log(`Running on port ${port}...`);
 });
